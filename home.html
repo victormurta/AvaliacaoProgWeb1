@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inferno</title>
+    <link rel="stylesheet" href="home.css" />
+    <link rel="icon" href="iconeInferno.jpg" />
+  </head>
+
+  <!-- SCRIPT DO POP-UP -->
+  <script>
+    function showModal(modalId) {
+      var element = document.getElementById(modalId);
+      element.classList.add("show-modal");
+    }
+
+    function hideModal(modalId) {
+      var element = document.getElementById(modalId);
+      element.classList.remove("show-modal");
+    }
+  </script>
+
+  <!-- BODY -->
+  <body>
+    <div class="container-conteudo">
+      <div class="cabecalho">
+        <h1>Inferno</h1>
+      </div>
+
+      <img
+        class="frase-Dante"
+        src="fraseDante.png"
+        alt="Frase de Dante Alighieri"
+      />
+
+      <!-- DESCRIÇÃO GERAL -->
+      <div class="geral">
+        <p>
+          A ordem natural do inferno é que seus condenados permaneçam sofrendo
+          até que suas almas sumam. Porém, de tempos em tempos, surgem aqueles
+          que ousam desafiar seus destinos. Escapam de seus círculos até o
+          Limbo, buscando por um alívio. Descobrem apenas a dura realidade do
+          vazio. No Limbo o tempo roubará até o pouco que conquistaram. Só lhes
+          resta escapar pelo primeiro círculo. Bastará conquistar todas as peças
+          que o inferno esconde. Não se sabe quem foi o primeiro a tentar, mas a
+          certeza é que ninguém nunca saiu. Ela sempre os espera no último
+          círculo. Os protetores dos círculos não podem ser mais do que
+          atordoados enquanto descobrem como escapar pelos portões!
+        </p>
+      </div>
+
+      <!-- DESCRIÇÃO DO LIMBO -->
+      <div class="limbo">
+        <img src="limbo.png" alt="Limbo" />
+        <div class="limbo-texto">
+          <h2>Limbo</h2>
+          <p>
+            Lar daqueles que, mesmo nobres, não conheceram a palavra de Deus.
+            Aqui não há demônios para a tortura. Em primeiro momento soa como um
+            alento para os condenados de outros círculos. Mas basta que o tempo
+            se mostre dono de tudo e leve deles suas lembranças. Aqui a ausência
+            de tudo faz morada.
+          </p>
+        </div>
+      </div>
+
+      <!-- REGRAS E OBJETIVOS -->
+      <div class="regras">
+        <button class="btn-card btn-regras" onclick="showModal('regrasmodal')">
+          Regras e Objetivos
+        </button>
+
+        <div class="modal" id="regrasmodal">
+          <div class="modal-content">
+            <span onclick="hideModal('regrasmodal')">&times;</span>
+            <h1 id="modal-title">Regras e Objetivos</h1>
+            <h2>Regras</h2>
+            <p>
+              <strong>Sobre Vida:</strong> Vida só pode ser recuperada por cura
+              (via Heresia), exceto a Gula que se cura também pela sua Violação.
+              Se chegar a 0 de vida, sua alma é destruída por completo.
+              <br /><br />
+              <strong>Sobre Vitalidade:</strong> Vitalidade recebe bônus de +5 a
+              +15 no fim de cada círculo a depender do desempenho (Ela decide).
+              Exceto a Violência que pode se vitalizar por meio da brutalidade.
+              <br /><br />
+              <strong>Sobre Armas:</strong> Todos podem ter uma arma a ser
+              aprovada, ou objeto que faça sentido com o seu personagem. Excesso
+              Traição que tem uma mascote e Heresia que carrega uma bolsa de
+              vida com capacidade máxima de +100 de vida (Se perder se fudeu).
+              <br /><br />
+              <strong>Sobre Visual:</strong> Pelo visual está liberado tudo.
+              Pode ir até nu. Nomes que eu possa falar depois de umas cervejas.
+              <br /><br />
+              <strong>Sobre Agressão Mútua:</strong> A habilidade de quem ataca
+              contra a Resistência de quem é atacado. <br /><br />
+              <strong>Sobre Dados:</strong> Será girado um D20 tranquilo. Sendo
+              1 erro crítico. E 20 acerto crítico. <br /><br />
+              <strong>MISTERIO I:</strong> Há algo de poderoso e especial que um
+              de vocês pode ter. Vale apenas para o primeiro. Sejam bons
+              jogadores e sortudos. <br /><br />
+              <strong>MISTERIO II:</strong> Há algo escondido sobre Ela. Se for
+              entendido, haverá vantagem no combate final.
+            </p>
+            <h2>Objetivos</h2>
+            <p>
+              Os protetores dos círculos não podem ser mais do que atordoados
+              enquanto descobrem como escapar pelos portões! Vocês serão
+              submetidos a charada para abrir cada portão. E enquanto aqueles
+              que melhor lutam irão atordoar os demônios, os mais inteligentes
+              abrem passagem. Desçam até as profundezas para encontrar a saída e
+              se vingarem Dela.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- POP-UPS POSTAGENS -->
+      <div class="circulos">
+        <!--LUXURIA-->
+        <div class="luxuria">
+          <button
+            class="btn-card btn-luxuria"
+            onclick="showModal('luxuriamodal')"
+          >
+            <span> Luxúria</span>
+          </button>
+          <div class="modal" id="luxuriamodal">
+            <div class="modal-content">
+              <span onclick="hideModal('luxuriamodal')">&times;</span>
+              <h1 id="modal-title">Luxúria</h1>
+              <p>teste teste teste</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--LUXURIA-->
+
+      <!-- seção DELA -->
+      <div class="ela">
+        <img src="silhuetaEla.png" alt="ela" />
+        <div class="ela-texto">
+          <h2>Ela</h2>
+          <p>É tudo o que os aguarda ao final!</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- RODAPÉ -->
+    <footer class="rodape">
+      <h3>Autores:</h3>
+      <p>Alícia Ribeiro</p>
+      <p>Ana Cajuela</p>
+      <p>Anthenor Fernandes</p>
+      <p>Rillory Teodora</p>
+      <p>Victor Murta</p>
+    </footer>
+  </body>
+</html>

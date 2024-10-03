@@ -1,0 +1,234 @@
+@import url("https://fonts.googleapis.com/css2?family=Sevillana&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&family=Yeon+Sung&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Sevillana&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&family=Yeon+Sung&display=swap");
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: black;
+}
+
+p {
+  font-family: "Arvo", serif;
+  word-wrap: break-word;
+  text-align: justify;
+}
+
+h1,
+h2 {
+  font-family: "Yeon Sung", system-ui;
+}
+
+.container-conteudo {
+  max-width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(240, 240, 240);
+  padding-top: 80px;
+}
+
+/*------------------CABEÇALHO----------------*/
+.cabecalho {
+  text-align: center;
+  background-image: url(fundoCabecalho.png);
+  background-position: center;
+  background-size: cover;
+  color: rgb(204, 39, 39);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 0;
+  z-index: 1000;
+}
+
+/*------------------CONTEÚDO----------------*/
+.geral,
+.limbo,
+.circulos {
+  margin: 20px 50px;
+}
+
+.frase-Dante {
+  display: block;
+  margin: 150px auto 50px auto;
+  max-width: 100%;
+  height: auto;
+}
+
+/*------------LIMBO------------*/
+.limbo {
+  max-width: 60%;
+  border: solid 1px;
+  padding: 30px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.limbo img {
+  max-width: 50%;
+  height: auto;
+}
+.limbo-texto {
+  max-width: 50%;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/*------------CARDS------------*/
+
+/*------------CSS POP-UPS------------*/
+body .modal-open {
+  overflow: hidden; /* Impede a rolagem */
+}
+.modal {
+  z-index: 2000;
+  position: fixed;
+  padding: 0;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(138, 138, 138, 0.8);
+  backdrop-filter: blur(5px);
+  transform: scale(1.1);
+  opacity: 0;
+  visibility: hidden;
+  transition: visibility 2.25s ease-in-out, transform 0.25s ease-in-out,
+    opacity 0.25s ease-in-out;
+}
+.modal-content {
+  background-color: white;
+  padding: 16px 24px;
+  width: 384px;
+  border-radius: 10px;
+  width: 600px; /* Mude aqui para a largura desejada */
+  max-height: 90%; /* Limita a altura do conteúdo do modal */
+  overflow-y: auto;
+}
+span {
+  float: right;
+  width: 24px;
+  cursor: pointer;
+  text-align: center;
+  line-height: 24px;
+}
+span:hover {
+  background-color: rgb(241, 136, 136);
+}
+.show-modal {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+
+.btn-card {
+  font-size: 30px;
+  border-radius: 20px;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+}
+.btn-card:hover {
+  width: 203px;
+  height: 203px;
+  box-shadow: 2px 5px 10px black;
+}
+/*-----REGRAS-----*/
+.btn-regras {
+  background-color: rgb(163, 53, 53);
+}
+/*-----LUXURIA-----*/
+.btn-luxuria {
+  position: relative;
+  color: black;
+  font-size: 30px;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  overflow: hidden;
+}
+.btn-luxuria::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url(limbo.png);
+  opacity: 0.5;
+  z-index: 0;
+}
+.btn-luxuria span {
+  position: relative;
+  z-index: 1;
+}
+
+/*------------ELA------------*/
+.ela {
+  max-width: 60%;
+  border: solid 1px;
+  padding: 30px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 30px;
+  background-image: url(fundoDela.png);
+  background-position: center;
+  background-size: cover;
+}
+.ela img {
+  max-width: 50%;
+  height: auto;
+}
+.ela-texto {
+  max-width: 50%;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+
+/*------------------RODAPÉ----------------*/
+.rodape {
+  bottom: 0;
+  left: 0;
+  background-image: url(fundoRodape.png);
+  background-position: center;
+  background-size: cover;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  align-items: center;
+  gap: 30px;
+  display: flex;
+  width: 100%;
+  position: relative;
+  justify-content: center;
+}
+
+.rodape h3 {
+  margin-right: 20px;
+  margin-left: 100px;
+}
+.rodape p {
+  margin: 0;
+}
+
+/*"Arvo", serif;*/
