@@ -1,43 +1,79 @@
 <?php
 $host = "127.0.0.1";
 $usuario = "root";
-$senha= "";
-$db="tavelaavaliacao";
-$conn = new mysqli($host,$usuario, $senha, $db);
+$senha = "";
+$db = "tabelaavaliacao";
 
-if ($conn->connect_error) 
-{
+$conn = new mysqli($host, $usuario, $senha, $db);
+
+if ($conn->connect_error) {
     die("Falha na conexão: " . $conn->connect_error);
 }
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST')
-{
-    $nome = $conn->real_escape_string($_POST['nome']);
-    $email = $conn->real_escape_string($_POST['email']);
-    $senha = password_hash($_POST['senha'], PASSWORD_BCRYPT);
-
-    $sql = "INSERT INTO usuarios (nome, email, senha) VALUES ('$nome', '$email', '$senha')";
-
-    if ($conn->query($sql) === TRUE) 
-    {
-        header('Location: index.php');
-        exit;
-    } else {
-        echo "Erro: " . $sql . "<br>" . $conn->error;
-        }
-} 
-$conn->close();
-
-//$nome = $_POST['nome'];
-//$sql = "INSERT INTO usuarios (nome) VALUES ('$nome')";
-// Se o usuário inserir "Joana D'arc", a consulta se torna:
-// INSERT INTO usuarios (nome) VALUES ('Joana 'D'Arac')
-// Isso pode causar um erro SQL ou ser explorado em um ataque.
-
-//$nome = $conn->real_escape_string($_POST['nome']);
-//$sql = "INSERT INTO usuarios (nome) VALUES ('$nome')";
-// A string é segura, pois "Joana D'arc" será transformado em "Joana \D'Arc'".
-// A consulta se torna segura:
-// INSERT INTO usuarios (nome) VALUES ("Joana \D'Arc")
+$sql = "SELECT classe,vantagem,desvantagem FROM classes";
+$result = $conn->query($sql);
 
 ?>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="" method="post">
+        <div>
+            <label for="imagem">Imagem:</label>
+            <input type="file" id="imagem" name="imagem" accept="image/*">
+        </div>
+
+        <div>
+            <label for="nome">Nome do personagem:</label>
+            <input type="text" id="nome" name="nome" required>
+        </div>
+
+        <div>
+            <label for="classe">Classe:</label> 
+            <select id="opcao" name="opcao">
+            <?php
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<option value='{$row['classe']}'>{$row['classe']}</option>";
+                        }
+                    } else {
+                        echo "<option value=''>Nenhuma classe disponível</option>";
+                    }
+                ?>
+            </select>
+        </div>
+
+        <div>
+            <label for="historia" class="form-label">História:</label>
+            <input type="text" id="historia" name="historia" required>
+        </div>
+
+        <div>
+            <label for="item" class="form-label">Item:</label>
+            <input type="text" id="item" name="item" required>
+        </div>
+
+        <div>
+            <label for="item" class="form-label">Vantagem:</label>
+            <p>Coloque até 10 pontos Distribuídos como desejar</p>
+            <div>
+            <p>Vantagens - Distribua até 10 pontos</p>
+            <?php
+                foreach ($vantagens as $vantagem) {
+                    echo "<label for='{$vantagem}'>{$vantagem}:</label>";
+                    echo "<input type='number' id='{$vantagem}' name='vantagens[{$vantagem}]' class='vantagem-input' min='0' max='10' value='0'><br>";
+                }
+            ?>
+        </div>
+        </div>
+        <button type="submit">Enviar</button>
+    </form>
+</body>
+</html>
