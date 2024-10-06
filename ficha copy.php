@@ -34,7 +34,6 @@ $result = $conn->query($sql);
             <label for="nome">Nome do personagem:</label>
             <input type="text" id="nome" name="nome" required>
         </div>
-
         <div>
             <label for="classe">Classe:</label> 
             <select id="opcao" name="opcao">
